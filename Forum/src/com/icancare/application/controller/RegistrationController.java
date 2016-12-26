@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.icancare.dto.PatientDTO;
+import com.icancare.pojo.Patient;
 
 @Controller
 public class RegistrationController {
@@ -20,7 +20,7 @@ public class RegistrationController {
 	
 	
 	@RequestMapping(value="/registerValidate",method=RequestMethod.POST)
-	public ModelAndView getRegistrationCredentials(@ModelAttribute("patientRegistration") PatientDTO registrationCredentials
+	public ModelAndView getRegistrationCredentials(@ModelAttribute("patientRegistration") Patient registrationCredentials
 							,ModelMap modelMap){
 		
 		System.out.println(registrationCredentials.getPatientName());
