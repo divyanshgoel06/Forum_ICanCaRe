@@ -6,23 +6,21 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.icancare.dto.PatientDTO;
-import com.icancare.pojo.Patient;
 
 @Controller
 public class RegistrationController {
 
-	
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
-	   public ModelAndView registrationPage(ModelMap modelMap) {			
-	      return new ModelAndView("registration","patientRegistration", new PatientDTO());
-	   }   
-	
-	
-	@RequestMapping(value="/registerValidate",method=RequestMethod.POST)
-	public ModelAndView getRegistrationCredentials(@ModelAttribute("patientRegistration") Patient registrationCredentials
-							,ModelMap modelMap){
-		
+	public ModelAndView registrationPage(ModelMap modelMap) {
+		return new ModelAndView("registration", "patientRegistration", new PatientDTO());
+	}
+
+	@RequestMapping(value = "/registerValidate", method = RequestMethod.POST)
+	public ModelAndView getRegistrationCredentials(
+			@ModelAttribute("patientRegistration") PatientDTO registrationCredentials, ModelMap modelMap) {
+
 		System.out.println(registrationCredentials.getPatientName());
 		System.out.println(registrationCredentials.getPatientEmailId());
 		System.out.println(registrationCredentials.getMobileNumber());
@@ -32,8 +30,8 @@ public class RegistrationController {
 		System.out.println(registrationCredentials.getCity());
 		System.out.println(registrationCredentials.getDisease());
 		System.out.println("hello");
-		ModelAndView modelAndView = new ModelAndView("redirect:/login");		
+		ModelAndView modelAndView = new ModelAndView("redirect:/login");
 		return modelAndView;
 	}
-	
+
 }
