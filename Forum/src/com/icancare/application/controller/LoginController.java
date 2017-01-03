@@ -28,7 +28,7 @@ public class LoginController {
 		ModelAndView modelAndView;
 		System.out.println(loginCredentials.getEmail());
 		System.out.println(loginCredentials.getPassword());
-		System.out.println("Hello this is shwet");
+//		System.out.println("Hello this is shwet");
 		
 //		modelAndView = new ModelAndView();
 		modelAndView = new ModelAndView("redirect:/registration", "patientRegistration", new PatientDTO());
